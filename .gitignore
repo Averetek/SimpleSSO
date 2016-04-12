@@ -37,6 +37,8 @@ _UpgradeReport_Files/
 UserData/
 [Ff]ile[Ee]xplorer/
 Ankh.NoLoad
+.vs/config/
+[Pp]roperties/
 
 #MonoDevelop
 *.pidb
