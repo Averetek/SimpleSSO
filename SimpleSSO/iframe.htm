@@ -1,0 +1,140 @@
+<html>
+<head>
+	<title>SSO TEST PAGE</title>
+	<script type="text/javascript" src="/library/js/sha1.js"></script>
+	<script type="text/javascript">
+		function GenerateId() {
+			var text = '';
+			var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+			for (var i = 0; i < 6; i++)
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+			return text;
+		}
+
+		function RandomId(control) {
+			control.value = GenerateId();
+		}
+
+		function GenerateSha1(control, val1, val2, val3) {
+			var hash = Sha1.hash(val1 + val2 + val3);
+			control.value = hash.toUpperCase();
+
+		}
+
+	</script>
+</head>
+<body>
+	<form id='sso-form' action="/SSOIn.aspx" method="post" target="sample-iframe">
+		<div width="100%">
+			<table>
+				<tr>
+					<td>userRole</td>
+					<td>
+						<input type="text" id='userRole' name='userRole' value='' />
+					</td>
+				</tr>
+				<tr>
+					<td>UserId</td>
+					<td>
+						<input type="text" id='userId' name='userId' value='D34L9R' /> <button type="button" onclick="RandomId(this.form.userId)">Regenerate</button>
+					</td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td>
+						<input type="text" id='email' name='email' value='john@averetek.com' />
+					</td>
+				</tr>
+				<tr>
+					<td>First Name</td>
+					<td>
+						<input type="text" id='first' name='first' value='John' />
+					</td>
+				</tr>
+				<tr>
+					<td>Last Name</td>
+					<td>
+						<input type="text" id='last' name='last' value='Smith' />
+					</td>
+				</tr>
+				<tr>
+					<td>Target URL</td>
+					<td>
+						<input type="text" id='targeturl' name='targeturl' value='' />
+					</td>
+				</tr>
+				<tr>
+					<td>Partner Name</td>
+					<td>
+						<input type="text" id='organizationName' name='organizationName' value='Averetek, Inc.' />
+					</td>
+				</tr>
+				<tr>
+					<td>PartnerId</td>
+					<td>
+						<input type="text" id='organizationNumber' name='organizationNumber' value='P3AZNT' /> <button type="button" onclick="RandomId(this.form.organizationNumber)">Regenerate</button>
+					</td>
+				</tr>
+				<tr>
+					<td>Address Line 1</td>
+					<td>
+						<input type="text" id='address1' name='address1' value='144 Railroad Ave' />
+					</td>
+				</tr>
+				<tr>
+					<td>Address Line 2</td>
+					<td>
+						<input type="text" id='address2' name='address2' value='' />
+					</td>
+				</tr>
+				<tr>
+					<td>City</td>
+					<td>
+						<input type="text" id='city' name='city' value='Edmonds' />
+					</td>
+				</tr>
+				<tr>
+					<td>State / Region</td>
+					<td>
+						<input type="text" id='region' name='region' value='WA' />
+					</td>
+				</tr>
+				<tr>
+					<td>Country</td>
+					<td>
+						<input type="text" id='country' name='country' value='US' />
+					</td>
+				</tr>
+				<tr>
+					<td>Postal Code</td>
+					<td>
+						<input type="text" id='postalCode' name='postalCode' value='98020' />
+					</td>
+				</tr>
+				<tr>
+					<td>Shared Key</td>
+					<td>
+						<input type="text" id='sharedKey' name='sharedKey' value='SecretKeyDoNotShare' />
+					</td>
+				</tr>
+				<tr>
+					<td>Verification</td>
+					<td>
+						<input type="text" id='v' name='v' value='8F6922DEEE2616A98FB5D9D02AA6FD7C966F60F4'/> 
+						<button type="button" onclick="GenerateSha1(this.form.v, this.form.organizationNumber.value, this.form.email.value, this.form.sharedKey.value)">Recalculate</button>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<button type="submit" id="submit">Submit</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</form>
+	<iframe id="sample-iframe" name="sample-iframe" height="100%" width="100%" src="Default.aspx"></iframe>
+</body>
+</html>
