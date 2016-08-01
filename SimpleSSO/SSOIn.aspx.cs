@@ -33,7 +33,7 @@ namespace SimpleSSO
             /* This is here for testing purposes only. Remove after a successful setup. */
             #region Validation
             var regexUtils = new Library.RegexUtilities();
-            if(regexUtils.IsValidEmail(email))
+            if(!regexUtils.IsValidEmail(email))
             {
                 Response.Write("ERROR: Missing or invalid email address");
                 return;
@@ -86,8 +86,8 @@ namespace SimpleSSO
 			ltCountry.Text = country;
 			ltPostalCode.Text = postalCode;
 
-			ltHashStatus.Text = hash.ToLower().Equals(v.ToLower()) ? "True" : "False";
-			ltHash.Text = hash.ToLower().Equals(v.ToLower()) ? hash : hash + " != " + v;
+			ltHashStatus.Text = hashStatus ? "True" : "False";
+			ltHash.Text = hashStatus ? hash : hash + " != " + v;
             #endregion
         }
 
