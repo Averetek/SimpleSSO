@@ -22,7 +22,6 @@
 			control.value = hash.toUpperCase();
 
 		}
-
 	</script>
 </head>
 <body>
@@ -44,7 +43,9 @@
 				<tr>
 					<td>Email</td>
 					<td>
-						<input type="text" id='email' name='email' value='john@averetek.com' />
+						<input type="text" id='email' name='email' value='john@averetek.com'
+							   onchange="GenerateSha1(this.form.v, this.form.organizationNumber.value, this.form.email.value, this.form.sharedKey.value)"
+							   onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" />
 					</td>
 				</tr>
 				<tr>
@@ -74,7 +75,10 @@
 				<tr>
 					<td>PartnerId</td>
 					<td>
-						<input type="text" id='organizationNumber' name='organizationNumber' value='P3AZNT' /> <button type="button" onclick="RandomId(this.form.organizationNumber)">Regenerate</button>
+						<input type="text" id='organizationNumber' name='organizationNumber' value='P3AZNT'
+							   onchange="GenerateSha1(this.form.v, this.form.organizationNumber.value, this.form.email.value, this.form.sharedKey.value)"
+							   onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" />
+						<button type="button" onclick="RandomId(this.form.organizationNumber); GenerateSha1(this.form.v, this.form.organizationNumber.value, this.form.email.value, this.form.sharedKey.value);">Regenerate</button>
 					</td>
 				</tr>
 				<tr>
@@ -122,7 +126,7 @@
 				<tr>
 					<td>Verification</td>
 					<td>
-						<input type="text" id='v' name='v' value='8F6922DEEE2616A98FB5D9D02AA6FD7C966F60F4'/> 
+						<input type="text" id='v' name='v' value='8F6922DEEE2616A98FB5D9D02AA6FD7C966F60F4' />
 						<button type="button" onclick="GenerateSha1(this.form.v, this.form.organizationNumber.value, this.form.email.value, this.form.sharedKey.value)">Recalculate</button>
 					</td>
 				</tr>
