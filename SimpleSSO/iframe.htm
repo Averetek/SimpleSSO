@@ -44,8 +44,7 @@
 					<td>Email</td>
 					<td>
 						<input type="text" id='email' name='email' value='john@averetek.com'
-							   onchange="GenerateSha1(this.form.v, this.form.organizationNumber.value, this.form.email.value, this.form.sharedKey.value)"
-							   onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" />
+							   oninput="GenerateSha1(this.form.v, this.form.organizationNumber.value, this.form.email.value, this.form.sharedKey.value)" />
 					</td>
 				</tr>
 				<tr>
@@ -76,8 +75,7 @@
 					<td>PartnerId</td>
 					<td>
 						<input type="text" id='organizationNumber' name='organizationNumber' value='P3AZNT'
-							   onchange="GenerateSha1(this.form.v, this.form.organizationNumber.value, this.form.email.value, this.form.sharedKey.value)"
-							   onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" />
+							   oninput="GenerateSha1(this.form.v, this.form.organizationNumber.value, this.form.email.value, this.form.sharedKey.value)" />
 						<button type="button" onclick="RandomId(this.form.organizationNumber); GenerateSha1(this.form.v, this.form.organizationNumber.value, this.form.email.value, this.form.sharedKey.value);">Regenerate</button>
 					</td>
 				</tr>
